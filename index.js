@@ -6,6 +6,20 @@ const { sequelize, Owner, Pet } = require('./models');
 const app = express();
 app.use(express.json());
 
+app.get('/owner/:id', (req, res) => {
+  const id = req.params.id;
+  Owner.findByPk(id, { include: 'pets' })
+    .then(found_owner => res.status(200).json(found_owner))
+    .catch(err => res.status(500).send(err));
+});
+
+app.get('/pet/:id', (req, res) => {
+  const id = req.params.id;
+  Pet.findByPk(id, { include: 'owner' })
+    .then(found_pet => res.status(200).json(found_pet))
+    .catch(err => res.status(500).send(err));
+});
+
 app.post('/create-owner', (req, res) => {
   const { name, age } = req.body;
   Owner.create({ name, age })
