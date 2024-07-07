@@ -11,7 +11,9 @@
   "license": "ISC",
   "description": "rest api using express, mysql with sequelize orm",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.10.2",
     "sequelize": "^6.37.3"
   },

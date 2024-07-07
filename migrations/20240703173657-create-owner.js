@@ -19,6 +19,11 @@ module.exports = {
         allowNull: false,
         validate: { isInt: true, notEmpty: true }
       },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: { notEmpty: true }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

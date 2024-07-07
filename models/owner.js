@@ -29,6 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: { isInt: true, notEmpty: true }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { notEmpty: true }
     }
   }, {
     sequelize,
